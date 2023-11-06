@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LeeML-Notes</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css"> -->
+  <!-- <link rel="stylesheet" href="//cdn.staticfile.org/docsify/4.10.2/themes/vue.css"> -->
+  <!-- <link rel="stylesheet" href="buble.css"> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+  <!-- <link rel="stylesheet" href="vue.css"> -->
+
+
+
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+
+  <script>
+    var num = 0;
+    mermaid.initialize({ startOnLoad: false });
+    window.$docsify = {
+      coverpage: false,
+      name: 'yao-notes',
+      loadSidebar: true,
+      // mergeNavbar: true,
+      // hideSidebar: true,
+      maxLevel: 4,
+      subMaxLevel: 3,
+      auto2top: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      markdown: {
+        renderer: {
+          code: function(code, lang) {
+            if (lang === "mermaid") {
+              return (
+                '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+              );
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      },
+    }
+  </script>
+  <!-- CDN files for docsify-katex -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"> -->
+  <!-- Put them above docsify.min.js -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify@latest/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script> -->
+
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script> -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"> -->
+  <script src="//cdn.staticfile.org/docsify/4.10.2/docsify.min.js"></script>
+  <script src="//cdn.staticfile.org/prism/1.19.0/components/prism-python.min.js"></script>
+  <script src="//cdn.staticfile.org/prism/1.19.0/components/prism-sql.min.js"></script>
+  <script src="//cdn.staticfile.org/prism/1.19.0/components/prism-json.min.js"></script>
+  <script src="//cdn.staticfile.org/prism/1.19.0/components/prism-java.min.js"></script>
+  <script src="//cdn.staticfile.org/prism/1.19.0/components/prism-yaml.min.js"></script>
+  <script src="//cdn.staticfile.org/prism/1.19.0/components/prism-http.min.js"></script>
+  <script src="//cdn.staticfile.org/prism/1.19.0/components/prism-javascript.min.js"></script>
+  <script src="//cdn.staticfile.org/prism/1.19.0/components/prism-typescript.min.js"></script>
+  
+
+  </script>
+</body>
+</html>

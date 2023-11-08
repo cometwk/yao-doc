@@ -1,0 +1,33 @@
+# Checkbox 开关
+
+## 示例
+
+```json
+{
+	"状态": {
+		"bind": "open",
+		"view": {
+			"type": "Checkbox",
+			"props": {
+				"text": "打开"
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps extends CheckboxProps {
+	text?: string
+}
+```
+
+## API
+
+| 属性 | 说明 | 类型   | 默认值 | 必填 | 版本 |
+| ---- | ---- | ------ | ------ | ---- | ---- |
+| text | 描述 | string | -      | 否   |      |
+
+其他属性见 [Antd Checkbox](https://ant-design.gitee.io/components/checkbox-cn/)

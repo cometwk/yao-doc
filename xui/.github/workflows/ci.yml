@@ -1,0 +1,35 @@
+name: Sync
+
+on:
+      push:
+            branches:
+                  - main
+
+jobs:
+      build-and-deploy:
+            runs-on: ubuntu-latest
+            if: "contains(github.event.head_commit.message, '[deploy]') || contains(github.event.inputs.tags, '[deploy]')"
+            steps:
+                  - name: Sync
+                    uses: appleboy/ssh-action@master
+                    with:
+                          host: ${{ secrets.HOST }}
+                          username: ${{ secrets.USERNAME }}
+                          key: ${{ secrets.KEY }}
+                          port: ${{ secrets.PORT }}
+                          command_timeout: 20m
+                          script: |
+                                cd /app/website/components-doc-zh-CN
+                                git pull
+
+                  - name: CN - Sync
+                    uses: appleboy/ssh-action@master
+                    with:
+                          host: ${{ secrets.HOST_CN }}
+                          username: ${{ secrets.USERNAME }}
+                          key: ${{ secrets.KEY_CN }}
+                          port: ${{ secrets.PORT }}
+                          command_timeout: 20m
+                          script: |
+                                cd /app/website/components-doc-zh-CN
+                                git pull

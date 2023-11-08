@@ -1,0 +1,110 @@
+# Chart
+
+图表和看板，用来对结构化数据进行可视化，以呈现更为清晰且易于理解的数据指标。
+
+## 示例
+
+<Notice type='warning'>
+	注意：Chart组件既可作为页面使用，也可作为单独的组件使用。大屏和看板的区别是看板没有筛选工具栏，且右上角的按钮能链接到大屏。
+</Notice>
+
+<Detail title="Show Code">
+
+```json
+{
+	"name": "宠物医院数据图表",
+
+	"action": {
+		"before:data": "scripts.stat.BeforeData",
+		"data": { "process": "scripts.stat.Data", "default": ["2022-09-20"] },
+		"after:data": "scripts.stat.AfterData"
+	},
+
+	"layout": {
+		"operation": {
+			"actions": [
+				{
+					"title": "跳转至大屏",
+					"icon": "icon-airplay",
+					"action": { "Common.historyPush": { "pathname": "/x/Cool/demo" } }
+				}
+			]
+		},
+
+		"filter": {
+			"columns": [{ "name": "时间区间", "width": 6 }]
+		},
+
+		"chart": {
+			"columns": [{ "name": "宠物数量", "width": 6 }]
+		}
+	},
+
+	"fields": {
+		"filter": {
+			"时间区间": {
+				"bind": "range",
+				"edit": { "type": "RangePicker", "props": {} }
+			}
+		},
+		"chart": {
+			"宠物数量": {
+				"bind": "pet_count",
+				"link": "/x/Table/pet",
+				"view": { "type": "Number", "props": { "unit": "个" } }
+			}
+		}
+	}
+}
+```
+
+</Detail>
+
+<Notice type='warning'>
+	注意：Chart的Actions仅可使用`Common.historyPush`和`Common.historyBack`。
+</Notice>
+
+## Props
+
+```ts
+type ChartComponent = 'numberCard' | 'table' | 'line' | 'bar' | 'lineBar' | 'map' | 'pie'
+
+interface IProps {
+	// 页面标题
+	name: string
+	// 版本
+	version?: string
+	// 页面描述
+	description?: string
+	// 参考 Yao 关于 Node 的定义
+	nodes: Array<Node>
+	// 参考 Yao 关于 Api 的定义
+	apis: Api
+	// 参考 Yao 关于 Output 的定义
+	output: Output
+	// 页面描述
+	layout: {
+		operation: {
+			actions: Actions
+		}
+		// 筛选项
+		filters?: {
+			columns: Array<{
+				name: string
+				width?: number
+			}>
+		}
+		// 图表
+		chart: {
+			columns: Array<{
+				name: string
+				width?: number
+			}>
+		}
+	}
+	fields: {
+		filters?: Common.Fields
+		chart: Common.Fields
+	}
+}
+```

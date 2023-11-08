@@ -1,0 +1,84 @@
+# Tag 标签
+
+标签，常用于展示带有特征变量的数据行。
+
+## 使用场景
+
+- 客户类型
+
+- 商品类型
+
+- 对象当前状态
+
+## 示例
+
+```json
+{
+	"状态": {
+		"bind": "status",
+		"view": {
+			"type": "Tag",
+			"props": {
+				"options": [
+					{
+						"label": "开启",
+						"value": "enabled",
+						"color": "#41b883"
+					},
+					{
+						"label": "关闭",
+						"value": "disabled",
+						"color": "#f50"
+					}
+				]
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps extends TagProps {
+	options: Array<Option>
+	remote?: Request
+	pure?: boolean
+}
+
+interface Option {
+	label: string
+	value: string
+	color?: string
+}
+
+interface Request {
+	api: string
+	params?: { [key: string]: Common.DynamicValue }
+}
+```
+
+## API
+
+| 属性    | 说明               | 类型            | 默认值 | 必填 | 版本 |
+| ------- | ------------------ | --------------- | ------ | ---- | ---- |
+| options | 可能的选项         | `Array<Option>` | -      | 否   |      |
+| remote  | 使用请求过来的数据 | `Request`       | -      | 否   |      |
+| pure    | 是否没有样式       | boolean         | -      | 否   |      |
+
+### Value
+
+| 属性  | 说明   | 类型   | 必填 |
+| ----- | ------ | ------ | ---- |
+| label | 文字   | string | 是   |
+| color | 背景色 | string | 否   |
+
+### Option
+
+| 属性  | 说明   | 类型             | 必填 |
+| ----- | ------ | ---------------- | ---- |
+| label | 文字   | string           | 是   |
+| value | 选项值 | string \| number | 是   |
+| color | 背景色 | string           | 否   |
+
+其他属性见 [Antd Tag](https://ant-design.gitee.io/components/tag-cn/)

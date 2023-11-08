@@ -1,0 +1,41 @@
+# Mentions 提及
+
+提及，通常用来关联或通知某个人。
+
+## 使用场景
+
+- 聊天应用中需要对某一个或者多个人下发通知时。
+
+- 后台系统中，当前数据需要通知或者关联某一个或者某几个对象时。
+
+## 示例
+
+```json
+{
+	"Mentions": {
+		"bind": "Mentions_value",
+		"edit": {
+			"type": "Mentions",
+			"props": {
+				"autoSize": true,
+				"xProps": {
+					"search": {
+						"api": "/api/select/search",
+						"key": "keyword"
+					}
+				}
+			}
+		}
+	}
+}
+```
+
+## Props
+
+<Notice type='success'>Mentions组件的大部分Api和Select组件一样。</Notice>
+
+```ts
+interface IProps extends Remote.IProps, MentionProps {}
+```
+
+其他属性见 [Antd Mentions](https://ant-design.gitee.io/components/mentions-cn/)

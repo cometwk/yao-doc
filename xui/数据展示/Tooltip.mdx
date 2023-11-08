@@ -1,0 +1,42 @@
+# Tooltip 提示
+
+提示，鼠标悬浮出现说明文字，常用于简化页面，内容聚焦。
+
+## 使用场景
+
+- 菜单项名称
+
+- 对象的详细描述
+
+## 示例
+
+```json
+{
+	"说明": {
+		"label": "说明",
+		"view": {
+			"type": "Tooltip",
+			"props": {
+				"value": ":desc"
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+type IProps = TooltipProps & {
+	value: string
+}
+```
+
+## API
+
+| 属性  | 说明 | 类型   | 默认值 | 必填 | 版本 |
+| ----- | ---- | ------ | ------ | ---- | ---- |
+| value | 详细说明 | string | -      | 是   |      |
+
+其他属性见 [Antd Tooltip](https://ant-design.gitee.io/components/tooltip-cn/)
+

@@ -1,0 +1,65 @@
+# Bar 柱状图
+
+柱状图组件，用来表示有数据纵深的数据。
+
+## 使用场景
+
+- 日均访问量。
+
+- 饮食偏好。
+
+## 示例
+
+```json
+{
+	"状态分布": {
+		"bind": "datasource_status",
+		"view": {
+			"type": "Bar",
+			"props": {
+				"height": 240,
+				"nameKey": "status",
+				"axisLabel": { "interval": 0, "fontSize": 12 },
+				"series": [
+					{
+						"valueKey": "count",
+						"type": "bar",
+						"colorBy": "data",
+						"itemStyle": { "borderRadius": 6 },
+						"splitLine": { "show": false },
+						"axisLabel": { "show": false }
+					}
+				]
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+export interface IProps {
+	name: string
+	height: number
+	x_key: string
+	vertical: boolean
+	textLength: number
+	textWrap: boolean
+	hide_label?: boolean
+}
+```
+
+## API
+
+| 属性       | 说明                 | 类型   | 默认值 | 必填 | 版本 |
+| ---------- | -------------------- | ------ | ------ | ---- | ---- |
+| name       | 数据 key             | string | -      | 是   |      |
+| height     | 高度                 | string | -      | 是   |      |
+| x_key      | 横坐标 key           | string | -      | 是   |      |
+| vertical   | 是否纵向显示         | string | -      | 否   |      |
+| textLength | 文字长度限制         | string | -      | 否   |      |
+| textWrap   | 文字超过长度是否换行 | string | -      | 否   |      |
+| hide_label | 隐藏标题             | string | -      | 否   |      |
+
+更多属性见 [Echarts Bar](https://echarts.apache.org/examples/zh/index.html#chart-type-bar)

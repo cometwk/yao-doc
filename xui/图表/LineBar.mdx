@@ -1,0 +1,77 @@
+# Bar 折柱混合图
+
+折线柱状图组件，用来表示有指标与指标之间的关联趋势。
+
+## 使用场景
+
+- PM2.5 和气温的关系。
+
+- 房价与人口的关系。
+
+## 示例
+
+<Detail title="Show Code">
+
+```json
+{
+	"综合消费": {
+		"bind": "datasource_cost",
+		"view": {
+			"type": "LineBar",
+			"props": {
+				"height": 240,
+				"nameKey": "name",
+				"axisLabel": { "interval": 0, "fontSize": 12 },
+				"series": [
+					{
+						"valueKey": "stay",
+						"type": "line",
+						"smooth": true,
+						"symbolSize": 8,
+						"itemStyle": { "borderRadius": 6 },
+						"splitLine": { "show": false },
+						"axisLabel": { "show": false }
+					},
+					{
+						"valueKey": "cost",
+						"type": "bar",
+						"itemStyle": { "borderRadius": 6 },
+						"splitLine": { "show": false },
+						"axisLabel": { "show": false }
+					}
+				]
+			}
+		}
+	}
+}
+```
+
+</Detail>
+
+## Props
+
+```ts
+export interface IProps {
+	name: string
+	height: number
+	x_key: string
+	vertical: boolean
+	textLength: number
+	textWrap: boolean
+	hide_label?: boolean
+}
+```
+
+## API
+
+| 属性       | 说明                 | 类型   | 默认值 | 必填 | 版本 |
+| ---------- | -------------------- | ------ | ------ | ---- | ---- |
+| name       | 数据 key             | string | -      | 是   |      |
+| height     | 高度                 | string | -      | 是   |      |
+| x_key      | 横坐标 key           | string | -      | 是   |      |
+| vertical   | 是否纵向显示         | string | -      | 否   |      |
+| textLength | 文字长度限制         | string | -      | 否   |      |
+| textWrap   | 文字超过长度是否换行 | string | -      | 否   |      |
+| hide_label | 隐藏标题             | string | -      | 否   |      |
+
+更多属性见 [Echarts LineBar](https://echarts.apache.org/examples/zh/editor.html?c=mix-line-bar)

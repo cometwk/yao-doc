@@ -1,0 +1,44 @@
+# login.json 登录页面描述
+
+<Notice type='success'>适用于Admin和User登录。</Notice>
+
+```json
+{
+	"name": "::Admin Login",
+	"action": {
+		"process": "yao.login.Admin",
+		"args": [":payload"]
+	},
+	"layout": {
+		"entry": "/x/Chart/dashboard",
+		"captcha": "yao.utils.Captcha",
+		"cover": "/assets/images/login/cover.svg",
+		"slogan": "::Make Your Dream With Yao App Engine",
+		"site": "https://yaoapps.com"
+	}
+}
+```
+
+```ts
+interface IProps {
+	name: string
+	action: {
+		/** 处理器 */
+		process: string
+		/** 处理器参数 */
+		args: Array<string>
+	}
+	layout: {
+		/** 登录成功之后跳转的页面 */
+		entry: string
+		/** 页面插画 */
+		cover?: string
+		/** 页面Slogan */
+		slogan?: string
+		/** 底部链接 */
+		site?: string
+		/** 是否展示yao的媒体链接 */
+		showSNS?: boolean
+	}
+}
+```

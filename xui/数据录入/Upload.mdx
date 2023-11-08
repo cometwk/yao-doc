@@ -1,0 +1,50 @@
+# Upload 上传
+
+文件选择上传和拖拽上传控件。
+
+## 使用场景
+
+上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程。
+
+- 当需要上传一个或一些文件时。
+
+- 当需要使用拖拽交互时。
+
+## 示例
+
+```json
+{
+  "Upload": {
+    "bind": "Upload_value",
+    "edit": {
+      "type": "Upload",
+      "compute": "Upload",
+      "props": {
+        "multiple": true,
+        "maxCount": 3,
+        "filetype": "image",
+        "$api": { "process": "fs.system.Upload" }
+      }
+    }
+  }
+}
+```
+
+## Props
+
+```ts
+interface IProps
+  extends UploadProps,
+    Component.PropsEditComponent,
+    CommonProps {
+  api: string;
+}
+```
+
+## API
+
+| 属性 | 说明     | 类型   | 默认值 | 必填 | 版本 |
+| ---- | -------- | ------ | ------ | ---- | ---- |
+| api  | 上传接口 | string | -      | 是   |      |
+
+其他属性见 [Antd Upload](https://ant-design.gitee.io/components/upload-cn/)

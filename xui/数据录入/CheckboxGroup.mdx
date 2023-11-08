@@ -1,0 +1,58 @@
+# CheckboxGroup 多选框
+
+多选框组。
+
+## 使用场景
+
+- 在一组可选项中进行多项选择时。
+
+- 代替 Select 组件，直接展示选项。
+
+## 示例
+
+```json
+{
+	"CheckboxGroup": {
+		"bind": "CheckboxGroup_value",
+		"edit": {
+			"type": "CheckboxGroup",
+			"props": {
+				"options": [
+					{
+						"label": "Apple",
+						"value": 1
+					},
+					{
+						"label": "Pear",
+						"value": 2
+					},
+					{
+						"label": "Orange",
+						"value": 3
+					}
+				]
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface Option {
+	label: string
+	value: string
+	disabled?: boolean
+}
+
+type IProps = typeof Group & Component.PropsEditComponent & {}
+```
+
+## API
+
+| 属性    | 说明         | 类型              | 默认值 | 必填 | 版本 |
+| ------- | ------------ | ----------------- | ------ | ---- | ---- |
+| options | 选项列表     | IProps['options'] | -      | 否   |      |
+
+其他属性见 [Antd CheckboxGroup](https://ant-design.gitee.io/components/checkbox-cn/#Checkbox-Group)

@@ -1,0 +1,43 @@
+# Tree 树形控件
+
+多层次的结构列表。
+
+## 使用场景
+
+文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用 树控件 可以完整展现其中的层级关系，并具有展开收起选择等交互功能。
+
+- 展示和编辑若干级别的商品分类。
+
+- 国家、省市区的多项选择。
+
+## 示例
+
+```json
+{
+	"Tree": {
+		"bind": "Tree_value",
+		"edit": {
+			"type": "Tree",
+			"props": {
+				"checkable": true,
+				"xProps": {
+					"remote": {
+						"api": "/api/tree/search",
+						"search": {
+							"select": ["id", "name"]
+						}
+					}
+				}
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps extends TreeProps, Component.PropsEditComponent {}
+```
+
+其他属性见 [Antd Tree](https://ant-design.gitee.io/components/tree-cn/)

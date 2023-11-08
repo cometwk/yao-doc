@@ -1,0 +1,44 @@
+# Cascader 级联选择
+
+级联选择框。
+
+## 使用场景
+
+- 需要从一组相关联的数据集合进行选择，例如省市区，公司层级，事物分类等。
+
+- 从一个较大的数据集合中进行选择时，用多级分类进行分隔，方便选择。
+
+- 比起 Select 组件，可以在同一个浮层中完成选择，有较好的体验。
+
+## 示例
+
+```json
+{
+	"Cascader": {
+		"bind": "Cascader_value",
+		"edit": {
+			"type": "Cascader",
+			"props": {
+				"showSearch": true,
+				"placeholder": "请选择所属厂商",
+				"xProps": {
+					"remote": {
+						"api": "/api/cascader/search",
+						"query": {
+							"select": ["id", "name"]
+						}
+					}
+				}
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps extends Remote.IProps, CascaderProps<any> {}
+```
+
+其他属性见 [Antd Cascader](https://ant-design.gitee.io/components/cascader-cn/)

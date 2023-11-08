@@ -47,7 +47,7 @@ declare namespace Login {
 declare var login: Login.DSL;
 ```
 
-> 字段
+> 属性
 
 
 | 字段   | 类型   | 必填项 | 默认值 | 示例         | 说明                                                 |
@@ -56,11 +56,6 @@ declare var login: Login.DSL;
 | layout | Object | 是     |        |              | 页面布局定义。设置登录界面封面、登录后跳转路由地址等 |
 | action | Object | 是     |        |              | 用户登录逻辑处理器                                   |
 
-
-`Widget ID` 特别说明 
-- `Widget ID` : 通用字段, 描述某个类型下的唯一ID，即局部 ID。
-- ID取值规则: 例如 `/logins/x/y/admin.login.json`, 此时 id = `x.y.admin` 
-- 当然，`x.y.admin` 在此场景下不适用。按上面的定义， 其值只有 `admin` or `user`
 
 
 > layout Object

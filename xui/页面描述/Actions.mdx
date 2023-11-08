@@ -1,0 +1,145 @@
+# Actions
+
+Actions 可在如下场景使用:
+
+- `Table.operation.actions`
+
+- `Form.operation.actions`
+
+Actions 是对一些常用行为的抽象，内置以下 Actions 用于处理逻辑：
+
+- Common.openModal 
+
+- Common.historyPush
+
+- Common.historyBack
+
+- Table.save
+
+- Table.delete
+
+- Form.save
+
+- Form.delete
+
+- Service.\*
+
+- Studio.\*
+
+## 属性
+
+- title: Action名称
+
+- icon: Action图标
+
+- action: 指定的Action
+
+- style?: 样式（'danger'或'success'，非必填）
+
+- disabled?: 是否禁用（`{bind:string;value: string | Array<string>}`，非必填）
+
+- confirm?: 二次确认弹窗（非必填）
+
+## 示例
+
+`pet.form.json`
+
+```json
+{
+	"name": "::Pet Admin",
+	"action": {
+		"bind": { "model": "pet", "option": { "withs": { "doctor": {} } } }
+	},
+	"layout": {
+		"primary": "id",
+		"operation": {
+			"preset": { "save": { "back": true }, "back": {} },
+			"actions": [
+				{
+					"title": "治愈 {{name}}",
+					"icon": "icon-check",
+					"action": {
+						"Form.save": { "id": "{{id}}", "status": "cured" }
+					},
+					"style": "success",
+					"confirm": { "title": "提示", "desc": "确认将{{name}}变更为治愈状态？" }
+				}
+			]
+		}
+	}
+}
+```
+
+### Common.openModal 
+
+开启一个弹窗。
+
+#### 属性
+
+- width: 弹窗宽度（px）
+
+- Form?: 内容指定为Form（`{type: 'view' | 'edit';model:string}`，非必填）
+
+- Page?: 内容指定为Page（`{type: 'chart' | 'edit';model:string}`，非必填）
+
+### Common.historyPush 
+
+进行路由跳转。
+
+#### 属性
+
+- pathname: 跳转路径
+
+- search?: 路由查询字段（非必填）
+
+### Common.historyBack 
+
+返回上个页面。
+
+### Table.save 
+
+保存Table数据项，参数为key-value接口，且必须包含主键。
+
+### Table.delete 
+
+删除Table数据项，参数为空对象。
+
+### Form.save 
+
+保存Form数据，参数为key-value接口，且必须包含主键。
+
+### Form.delete 
+
+删除Form数据。
+
+#### 属性
+
+下面两个属性为互斥属性，二选一即可。
+
+- back?: 执行完上述删除动作后是否返回上一页（非必填）
+
+- pathname?: 执行完上述删除动作后需跳转的路径（非必填）
+
+### Service.*
+
+调用指定应用云函数。
+
+#### 属性 
+
+- Service.后的*即为云函数文件名
+
+- method: 云函数
+
+- args: 云函数参数（`Array<any>`，非必填）
+
+### Studio.* 
+
+调用指定Studio云函数。
+
+#### 属性 
+
+- Studio.后的*即为Studio云函数文件名
+
+- method: 云函数
+
+- args: 云函数参数（`Array<any>`，非必填）

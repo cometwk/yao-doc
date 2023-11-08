@@ -6,4 +6,6 @@
 - API笔记
   - [约定](note/index.md)
   - [Login](note/Login.md)
+  - [Table](note/Table.md)
+  - [Table2](note/Table2.md)
 

@@ -1,0 +1,41 @@
+# Icon 图标
+
+语义化的矢量图形。使用图标组件，你需要了解一些基本的用法：
+
+## 使用场景
+
+- 代替文本，形象化地表达内容
+
+- 作为一种符号，给用户以暗示
+
+## 示例
+
+<Notice type='warning'>
+	Icon组件在很多地方都可以使用，譬如table的自定义options，还有form的自定义actions等，注意，不同的命名方式，所使用的图标来源也会不同。
+</Notice>
+
+```tsx
+<Icon name='icon-download' size={18}></Icon>
+```
+
+## Props
+
+```ts
+/** 图标组件，支持如下两种图标库：
+ * feather icon https://feathericons.com/
+ * material design icon https://fonts.google.com/icons
+ */
+
+interface IProps {
+	/** 图表样式类 */
+	className?: string
+	/** 图标名称，以`icon`开头为feather icon，以`outline/filled`结尾为material design icon */
+	name: string
+	/** 图标尺寸，单位px */
+	size?: number
+	/** 图标颜色，适用所有字体颜色 */
+	color?: string
+	/** 点击事件 */
+	onClick?: () => void
+}
+```

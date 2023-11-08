@@ -1,0 +1,38 @@
+# Switch 开关
+
+## 示例
+
+```json
+{
+	"状态": {
+		"bind": "mode",
+		"view": {
+			"type": "Switch",
+			"props": {
+				"checkedValue": "enabled",
+				"unCheckedValue": "disabled",
+				"checkedChildren": "开启",
+				"unCheckedChildren": "关闭"
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps extends SwitchProps {
+	checkedValue: boolean | string
+	unCheckedValue: boolean | string
+}
+```
+
+## API
+
+| 属性           | 说明     | 类型     | 默认值  | 必填 | 版本 |
+| -------------- | -------- | -------- | ------- | ---- | ---- | --- |
+| checkedValue   | 选中值   | `boolean | string` | -    | 是   |     |
+| unCheckedValue | 未选中值 | `boolean | string` | -    | 是   |     |
+
+其他属性见 [Antd Switch](https://ant-design.gitee.io/components/switch-cn/)

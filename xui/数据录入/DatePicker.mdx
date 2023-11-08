@@ -1,0 +1,31 @@
+# DatePicker 日期选择框
+
+输入或选择日期的控件。
+
+## 使用场景
+
+- 当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
+
+- 展示或编辑营销等活动的截止日期
+
+## 示例
+
+```json
+{
+	"DatePicker": {
+		"bind": "DatePicker_value",
+		"edit": {
+			"type": "DatePicker",
+			"props": {}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps extends DatePickerProps, Component.PropsEditComponent {}
+```
+
+其他属性见 [Antd DatePicker](https://ant-design.gitee.io/components/datepicker-cn/)

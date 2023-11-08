@@ -1,0 +1,46 @@
+# RadioGroup 多选框
+
+多选框组。
+
+## 使用场景
+
+- 在一组互斥的可选项中进行单项选择时。
+
+- 和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
+
+## 示例
+
+```json
+{
+	"RadioGroup": {
+		"bind": "RadioGroup_value",
+		"edit": {
+			"type": "RadioGroup",
+			"props": {
+				"options": [
+					{
+						"label": "Apple",
+						"value": 1
+					},
+					{
+						"label": "Pear",
+						"value": 2
+					},
+					{
+						"label": "Orange",
+						"value": 3
+					}
+				]
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps extends RadioGroupProps, Component.PropsEditComponent {}
+```
+
+其他属性见 [Antd RadioGroup](https://ant-design.gitee.io/components/radio-cn/#RadioGroup)

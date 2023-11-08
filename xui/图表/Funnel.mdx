@@ -1,0 +1,35 @@
+# Funnel 漏斗图
+
+### 在图表页使用
+
+```json
+{
+	"支出": {
+		"bind": "type",
+		"link": "/x/Table/type",
+		"view": {
+			"type": "Funnel",
+			"props": {
+				"nameKey": "type"
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps {
+	data: Array<any>
+	nameKey?: string
+	height?: number
+}
+```
+
+## API
+
+| 属性        | 说明     | 类型   | 默认值 | 必填 | 版本 |
+| ----------- | -------- | ------ | ------ | ---- | ---- |
+| nameKey     | 名称 key | string | -      | 否   |      |
+| height | 高度     | number | -      | 否   |      |

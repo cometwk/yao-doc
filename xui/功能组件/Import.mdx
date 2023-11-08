@@ -1,0 +1,58 @@
+# Import 数据导入
+
+数据导入，用于导入 Excel、CSV 文件。
+
+## 示例
+
+<Notice type='success'>
+	注意：导入仅在table页面的JSON中定义有效，数据导入的过程中支持对数据进行清洗。
+</Notice>
+
+```json
+{
+	"header": {
+		"preset": {
+			"import": {}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface Header {
+	preset: {
+		import?: {
+			api: {
+				setting: string
+				mapping: string
+				preview: string
+				import: string
+				mapping_setting_model: string
+				preview_setting_model: string
+			}
+			actions: Actions
+		}
+	}
+}
+```
+
+<Notice type='warning'>注意：导入的Actions仅可使用`Common.historyPush`。</Notice>
+
+## API
+
+| 属性 | 说明 | 类型        | 默认值 | 必填 | 版本 |
+| ---- | ---- | ----------- | ------ | ---- | ---- |
+| api  | 接口 | [api](#api) | -      | 是   |      |
+
+### api
+
+| 属性            | 说明                  | 类型   | 必填 |
+| --------------- | --------------------- | ------ | ---- |
+| setting         | setting 接口          | string | 是   |
+| mapping         | 字段映射获取数据接口  | string | 是   |
+| mapping_setting | 字段映射 setting 接口 | string | 是   |
+| preview         | 数据预览数据接口      | string | 是   |
+| preview_setting | 数据预览 setting 接口 | string | 是   |
+| import          | 导入接口              | string | 是   |

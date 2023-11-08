@@ -1,0 +1,30 @@
+# InputNumber 数字输入框
+
+通过鼠标或键盘，输入范围内的数值。
+
+## 使用场景
+
+- 当需要获取标准数值时。
+
+- 提供格式化的数字输入，以此来约束输入内容。
+
+## 示例
+
+```json
+{
+	"InputNumber": {
+		"bind": "InputNumber_value",
+		"edit": {
+			"props": {}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps extends InputNumberProps, Component.PropsEditComponent {}
+```
+
+其他属性见 [Antd InputNumber](https://ant-design.gitee.io/components/input-number-cn/)

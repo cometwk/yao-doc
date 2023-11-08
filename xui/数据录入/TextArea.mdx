@@ -1,0 +1,35 @@
+# TextArea 多行文本编辑控件
+
+TextArea，支持输入一段相当长的、不限格式的文本。
+
+## 使用场景
+
+- 网站评论。
+
+- 一些详细的描述，如用户地址等。
+
+- 反馈表单中的一段意见。
+
+## 示例
+
+```json
+{
+	"TextArea": {
+		"bind": "TextArea_value",
+		"edit": {
+			"type": "TextArea",
+			"props": {
+				"rows": 3
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps extends TextAreaProps, Component.PropsEditComponent {}
+```
+
+其他属性见 [Antd TextArea](https://ant-design.gitee.io/components/input-cn/#Input.TextArea)

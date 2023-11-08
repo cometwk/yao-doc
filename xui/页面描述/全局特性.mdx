@@ -1,0 +1,128 @@
+# 全局特性
+
+## Fields
+
+```ts
+interface Fields {
+	[key: string]: {
+		bind: string
+		view?: {
+			bind?: string
+			type: string
+			props: any
+		}
+		edit?: {
+			bind?: string
+			type: string
+			props: any
+		}
+	}
+}
+```
+
+## Remote
+
+```ts
+export declare namespace Remote {
+	interface IProps extends Component.PropsEditComponent {
+		xProps: {
+			remote?: Request
+			search?: Request & { key: string }
+		}
+	}
+}
+
+interface Request {
+	api: string
+	params?: { [key: string]: any }
+}
+```
+
+## Component
+
+```ts
+export declare namespace Component {
+	interface Props {
+		__namespace: string
+		__primary: string
+		__type: FormType
+		__bind: string
+		__name: string
+		__data_item: any
+	}
+
+	interface PropsEditComponent extends Props {
+		style?: CSSProperties
+		itemProps?: FormItemProps
+	}
+
+      interface PropsViewComponent extends Props {
+		__value: any
+	}
+}
+```
+
+## 动态值
+
+动态值可在如下场景使用:
+
+- `Table.operation.actions`
+- 
+- `Table.fields`
+
+- `Form.operation.actions`
+- 
+- `Form.fields`
+
+动态值是对当前组件所在的数据项进行动态解析，解析语法和[mustache](https://www.npmjs.com/package/mustache)保持一致。
+
+### 语法
+
+- 一般变量: `{{id}}`
+
+- 多层对象: `{{person.age}}`
+
+### 示例
+
+对当前数据项调用接口进行状态变更：
+
+`pet.form.json`
+
+```json
+{
+	"name": "::Pet Admin",
+	"action": {
+		"bind": { "model": "pet", "option": { "withs": { "doctor": {} } } }
+	},
+	"layout": {
+		"primary": "id",
+		"operation": {
+			"preset": { "save": { "back": true }, "back": {} },
+			"actions": [
+				{
+					"title": "治愈 {{name}}",
+					"icon": "icon-check",
+					"action": {
+						"Form.save": { "id": "{{id}}", "status": "cured" }
+					},
+					"style": "success",
+					"confirm": {
+						"title": "提示",
+						"desc": "确认将{{name}}变更为治愈状态？"
+					}
+				}
+			]
+		}
+	}
+}
+```
+
+## 页面不限宽
+
+在所有页面 setting 中可通过如下配置，取消页面宽度限制：
+
+```json
+{
+	"config": { "full": true }
+}
+```

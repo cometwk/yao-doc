@@ -1,0 +1,48 @@
+# NumberCard 数字卡片
+
+数字卡片，通常用来展示关键性的指标信息。
+
+### 在图表页使用
+
+```json
+{
+	"宠物数量_上月": {
+		"bind": "prev_pet_count",
+		"link": "/x/Table/pet",
+		"view": {
+			"type": "Number",
+			"props": {
+				"cardStyle": { "padding": 0 },
+				"unit": "个",
+				"prev_title": "上月数据"
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps {
+	data:
+		| number
+		| {
+				current: number
+				prev: number
+		  }
+	prefix?: string
+	unit?: string
+	decimals?: number
+	prev_title?: string
+}
+```
+
+## API
+
+| 属性       | 说明         | 类型   | 默认值 | 必填 | 版本 |
+| ---------- | ------------ | ------ | ------ | ---- | ---- |
+| name       | 数据 key     | string | -      | 是   |      |
+| unit       | 单位         | string | -      | 否   |      |
+| decimals   | 小数点       | number | -      | 否   |      |
+| prev_title | 之前数据标题 | string | -      | 否   |      |

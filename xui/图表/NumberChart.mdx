@@ -1,0 +1,53 @@
+# NumberChart 数字图表
+
+数字图表，通常用来展示关键性的指标信息及其历史数据。
+
+### 在图表页使用
+
+```json
+{
+	"支出": {
+		"bind": "cost",
+		"link": "/x/Table/pet",
+		"view": {
+			"type": "NumberChart",
+			"props": {
+				"chartHeight": 150,
+				"color": "red",
+				"prefix": "¥",
+				"decimals": 2,
+				"nameKey": "date",
+				"valueKey": "value"
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps {
+	data: Array<any>
+	type: 'bar' | 'line'
+	nameKey?: string
+	valueKey?: string
+	prefix?: string
+	unit?: string
+	decimals?: number
+	chartHeight?: number
+	color?: string
+}
+```
+
+## API
+
+| 属性        | 说明     | 类型   | 默认值 | 必填 | 版本 |
+| ----------- | -------- | ------ | ------ | ---- | ---- |
+| nameKey     | 名称 key | string | -      | 否   |      |
+| valueKey    | 值 key   | string | -      | 否   |      |
+| prefix      | 前缀     | string | -      | 否   |      |
+| unit        | 单位     | string | -      | 否   |      |
+| decimals    | 小数点   | number | -      | 否   |      |
+| chartHeight | 高度     | number | -      | 否   |      |
+| color       | 颜色     | string | -      | 否   |      |

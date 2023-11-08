@@ -1,0 +1,35 @@
+# RangePicker 日期范围选择框
+
+输入或选择日期范围的控件。
+
+## 使用场景
+
+- 当用户需要输入一个日期范围，可以点击标准输入框，弹出日期面板进行选择两个日期时间。
+
+- 在筛选工具栏上编辑以查询日期范围内的指定数据
+
+## 示例
+
+<Notice type='warning'>注意：数据录入相关组件在图表页面的filter中使用时，JSON格式有所不同。</Notice>
+
+```json
+{
+	"RangePicker": {
+		"bind": "range",
+		"input": {
+			"type": "RangePicker",
+			"props": {
+				"placeholder": ["开始时间", "结束时间"]
+			}
+		}
+	}
+}
+```
+
+## Props
+
+```ts
+type IProps = TimeRangePickerProps & Component.PropsEditComponent & {}
+```
+
+其他属性见 [Antd RangePicker](https://ant-design.gitee.io/components/date-picker-cn/#RangePicker)

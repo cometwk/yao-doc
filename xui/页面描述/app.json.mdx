@@ -1,0 +1,56 @@
+# app.json 应用描述
+
+应用相关信息的描述，包括应用 logo、页面标题、登录跳转路口等关键信息。
+
+## 示例
+
+<Notice type='warning'>
+	注意：在构建应用时，app.json应是首先定义的，因为它包含了许多让应用界面得以运行的先决条件。
+</Notice>
+
+```json
+{
+	"xgen": "1.0",
+	"name": "::Demo Application",
+	"short": "::Demo",
+	"description": "::Another yao application",
+	"version": "0.10.2",
+	"menu": {
+		"process": "flows.app.menu",
+		"args": ["demo"]
+	},
+	"optional": {
+		"hideNotification": true,
+		"hideSetting": false
+	}
+}
+```
+
+## Props
+
+```ts
+interface IProps {
+	/** 应用名称 */
+	name: string
+	/** 应用描述 */
+	description?: string
+      /** 品牌logo，默认是Yao的logo */
+	logo?: string
+	/** favicon, 默认是Yao的favicon */
+	favicon?: string
+	/** xgen运行模式，备注：会影响用户体验 */
+	mode?: 'development' | 'production'
+	/** api 前缀, 默认是 __yao */
+	apiPrefix?: string
+	token?: {
+		/** token存储方式 */
+		storage: 'sessionStorage' | 'localStorage'
+	}
+      optional?: {
+		/** 隐藏导航栏通知图标 */
+		hideNotification?: boolean
+		/** 隐藏导航栏设置图标 */
+		hideSetting?: boolean
+	}
+}
+```
